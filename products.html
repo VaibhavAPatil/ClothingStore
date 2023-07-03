@@ -1,0 +1,96 @@
+{% extends "base.html" %} {% block body %}
+
+<!-- Insertion -->
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+  <div class="row align-items-center g-lg-5 py-5">
+    <div class="col-lg-7 text-center text-lg-start">
+      <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Products</h1>
+      <p class="col-lg-10 fs-4">Add Products</p>
+    </div>
+    <div class="col-md-10 mx-auto col-lg-5">
+      <form
+        class="p-4 p-md-5 border rounded-3 bg-body-tertiary"
+        method="POST"
+        action="/signup"
+      >
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Enter Your Name"
+            name="name"
+            required
+          />
+          <label for="floatingInput">Product Name</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Enter Your Product Description"
+            name="Description"
+            required
+          />
+          <label for="floatingInput">Product Description</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input
+            type="number"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Enter Product Price"
+            name="price"
+            required
+          />
+          <label for="floatingInput">Product Price</label>
+        </div>
+
+
+        <div class="form-floating mb-3">
+          <div class="mb-3">
+            <label for="formFile" class="form-label"
+              >Uplaod Product Image</label
+            >
+            <input
+              class="form-control"
+              type="file"
+              id="formFile"
+              accept="image/*"
+              name="image"
+            />
+          </div>
+        </div>
+
+        <button class="w-100 btn btn-lg sunrise-city text-light" type="submit">
+          Add Product
+        </button>
+        <hr class="my-4" />
+        <small class="text-body-secondary"
+          >By clicking Sign up, you agree to the terms of use.</small
+        >
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Display -->
+<div class="container">
+  <h1>Database Data</h1>
+
+  <h1>Products</h1>
+  <ul>
+      {% for product in products %}
+      <li>
+          <h2>{{ product.pname }}</h2>
+          <p>{{ product.pdesc }}</p>
+          <p>{{ product.price}}</p>>
+      </li>
+      {% endfor %}
+  </ul>
+</div>
+
+{% endblock body %}
